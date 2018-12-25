@@ -1,0 +1,48 @@
+<h1>基本情况</h1>
+<nz-table #basicTable [nzData]="BS">
+  <thead>
+  <tr>
+    <th>生育次数</th>
+    <th>时期</th>
+    <th>检查</th>
+    <th>结果</th>
+    <th>时间</th>
+    <th>备注</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pat of BS">
+    <td>{{pat.BirthNumber}}</td>
+    <td>{{pat.Period}}</td>
+    <td>{{pat.Check}}</td>
+    <td>{{pat.Result}}</td>
+    <td>{{pat.Time}}</td>
+    <td>
+      <a>详情</a>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+<h1>妊娠情况</h1>
+<nz-table #basicTable1 [nzData]="patient">
+  <thead>
+  <tr>
+    <th>编号</th>
+    <th>生育次数</th>
+    <th>时间</th>
+    <th>并发症</th>
+    <th>症状</th>
+    <th>持续时间</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pat of patient">
+    <td>{{pat.Number}}</td>
+    <td>{{pat.BirthNumber}}</td>
+    <td>{{pat.Time}}</td>
+    <td>{{pat.Complication}}</td>
+    <td>{{pat.Symptom}}</td>
+    <td>{{pat.Duration}}</td>
+  </tr>
+  </tbody>
+</nz-table>

@@ -1,0 +1,37 @@
+<!-- NG-ZORRO -->
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate" style="background: #fff;">
+    <div class="logo" >
+    </div>
+    <ul nz-menu [nzTheme]="'white'" [nzMode]="'inline'">
+      <li nz-menu-item><span><i nz-icon type="file"></i><span class="nav-text"routerLink="huangdou" >基本信息</span></span></li>
+      <li nz-menu-item><span><i nz-icon type="video-camera"></i><span class="nav-text" routerLink="yuanjie">就诊记录</span></span></li>
+      <li nz-menu-item><span><i nz-icon type="upload"></i><span class="nav-text"routerLink="yuge" >用药情况</span></span></li>
+      <li nz-menu-item><span><i nz-icon type="bar-chart"></i><span class="nav-text"routerLink="" >不良反应</span></span></li>
+      <li nz-menu-item><span><i nz-icon type="cloud-o"></i><span class="nav-text"routerLink="ziyu" >母妊娠期随访</span></span></li>
+      <li nz-menu-item><span><i nz-icon type="appstore-o"></i><span class="nav-text"routerLink="ziyuyu" >新生儿随访</span></span></li>
+    </ul>
+
+  </nz-sider>
+  <nz-layout>
+    <nz-header style="background: #fff; padding:0;">
+      <i class="trigger" nz-icon [type]="isCollapsed?'menu-unfold':'menu-fold'" (click)="isCollapsed=!isCollapsed"></i>
+    </nz-header>
+    <nz-content style="margin:0 16px;">
+      <nz-breadcrumb style="margin:16px 0;">
+        <nz-breadcrumb-item>User</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+      </nz-breadcrumb>
+      <div style="padding:24px; background: #fff; min-height: 360px;">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <nz-footer style="text-align: center;">YUge Design ©2018 Implement By YuShi</nz-footer>
+  </nz-layout>
+</nz-layout>
+<ng-template #trigger>
+  <i nz-icon type="up"></i>
+</ng-template>
+
+
+

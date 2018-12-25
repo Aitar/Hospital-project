@@ -1,0 +1,46 @@
+<h1>用药情况</h1>
+<nz-table #nestedTable [nzData]="BS" [nzPageSize]="10">
+  <thead>
+  <tr>
+    <th nzShowExpand></th>
+    <th>编号</th>
+    <th>时间</th>
+    <th>所用药物批号</th>
+    <th>备注</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-template ngFor let-data [ngForOf]="nestedTable.data">
+    <tr>
+      <td nzShowExpand [(nzExpand)]="data.expand"></td>
+      <td>{{data.id}}</td>
+      <td>{{data.date}}</td>
+      <td>{{data.medicineNum}}</td>
+      <td>{{data.remark}}</td>
+    </tr>
+    <tr [nzExpand]="data.expand">
+      <td></td>
+      <td colspan="7">
+        <nz-table #innerTable [nzData]="CS" nzSize="middle" [nzShowPagination]="false">
+  <thead>
+  <tr>
+    <th>药物</th>
+    <th>用量</th>
+    <th>周期</th>
+    <th>用药时间</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of innerTable.data">
+    <td>{{data.medicine}}</td>
+    <td>{{data.dosage}}</td>
+    <td>{{data.period}}</td>
+    <td>{{data.time}}</td>
+  </tr>
+  </tbody>
+</nz-table>
+</td>
+</tr>
+</ng-template>
+</tbody>
+</nz-table>

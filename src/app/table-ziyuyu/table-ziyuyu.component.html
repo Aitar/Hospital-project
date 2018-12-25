@@ -1,0 +1,60 @@
+<h1>新生儿随访情况</h1>
+<br>
+<nz-input-group [nzSize]="'large'">
+  <nz-form-label [nzSpan]="4" style="font-size: 16px">分娩时间</nz-form-label>
+  <div nz-col nzSpan="4">
+    <input type="text" nz-input>
+  </div>
+
+  <nz-form-label [nzSpan]="4" style="font-size: 16px">分娩方式</nz-form-label>
+  <div nz-col nzSpan="4">
+    <input type="text" nz-input>
+  </div>
+</nz-input-group>
+<br>
+<nz-input-group nzCompact>
+
+  <nz-form-label [nzSpan]="4" style="font-size: 16px">婴儿性别</nz-form-label>
+  <div nz-col nzSpan="4">
+    <nz-select [ngModel]="''">
+      <nz-option [nzLabel]="'男'" [nzValue]="'男'"></nz-option>
+      <nz-option [nzLabel]="'女'" [nzValue]="'女'"></nz-option>
+    </nz-select>
+  </div>
+  <nz-form-label [nzSpan]="4" style="font-size: 16px">婴儿Apgar评分</nz-form-label>
+  <div nz-col nzSpan="4">
+    <input type="text" nz-input>
+  </div>
+</nz-input-group>
+<br>
+<nz-input-group nzCompact>
+  <nz-form-label [nzSpan]="4" style="font-size: 16px">婴儿出生体重</nz-form-label>
+  <div nz-col nzSpan="4">
+    <input type="text" nz-input>
+  </div>
+  <nz-form-label [nzSpan]="4" style="font-size: 16px">身长</nz-form-label>
+  <div nz-col nzSpan="4">
+    <input type="text" nz-input>
+  </div>
+</nz-input-group>
+<br>
+<nz-input-group nzCompact>
+  <nz-form-label [nzSpan]="4" style="font-size: 16px">是否畸形</nz-form-label>
+  <div nz-col nzSpan="4">
+    <nz-select [ngModel]="''">
+      <nz-option [nzLabel]="'是'" [nzValue]="'是'"></nz-option>
+      <nz-option [nzLabel]="'否'" [nzValue]="'否'"></nz-option>
+    </nz-select>
+  </div>
+  <nz-form-label [nzSpan]="4" style="font-size: 16px">喂养方式</nz-form-label>
+  <div nz-col nzSpan="4">
+    <input type="text" nz-input>
+  </div>
+</nz-input-group>
+<br>
+<nz-input-group nzCompact>
+  <nz-form-label [nzSpan]="4" style="font-size: 16px">其他</nz-form-label>
+  <div nz-col nzSpan="8">
+    <textarea rows="8" nz-input [(ngModel)]="inputValue"></textarea>
+  </div>
+</nz-input-group>

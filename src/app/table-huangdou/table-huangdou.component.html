@@ -1,0 +1,70 @@
+<nz-table #editRowTable nzBordered
+          [nzData]="dataSet">
+  <thead>
+  <tr (nzSortChange)="sort($event)" nzSingleSort>
+    <th nzWidth="10%" nzShowSort>编号</th>
+    <th nzWidth="25%" nzShowSort>姓名</th>
+    <th nzWidth="15%" nzShowSort>年龄</th>
+    <th nzWidth="35%">电话</th>
+    <th nzWidth="15%"><button nz-button nzType="primary" ><i nz-icon type="plus-square" theme="outline"></i>添加患者</button></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of editRowTable.data">
+    <td>
+      <div class="editable-cell">
+        <div class="editable-cell-text-wrapper">
+          <ng-container *ngIf="!editCache[data.key].edit">
+            {{data.key}}
+          </ng-container>
+          <ng-container *ngIf="editCache[data.key].edit">
+            {{data.key}}
+          </ng-container>
+        </div>
+      </div>
+    </td>
+    <td>
+      <ng-container *ngIf="!editCache[data.key].edit">
+        {{data.name}}
+      </ng-container>
+      <ng-container *ngIf="editCache[data.key].edit">
+        <input type="text" nz-input [(ngModel)]="editCache[data.key].data.name">
+      </ng-container>
+    </td>
+    <td>
+      <ng-container *ngIf="!editCache[data.key].edit">
+        {{data.age}}
+      </ng-container>
+      <ng-container *ngIf="editCache[data.key].edit">
+        <input type="text" nz-input [(ngModel)]="editCache[data.key].data.age">
+      </ng-container>
+    </td>
+    <td>
+      <ng-container *ngIf="!editCache[data.key].edit">
+        {{data.phoneNumber}}
+      </ng-container>
+      <ng-container *ngIf="editCache[data.key].edit">
+        <input type="text" nz-input [(ngModel)]="editCache[data.key].data.phoneNumber">
+      </ng-container>
+    </td>
+
+    <td>
+      <div class="editable-row-operations">
+        <ng-container *ngIf="!editCache[data.key].edit">
+          <a (click)="startEdit(data.key)">编辑</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>查看</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>导出</a>
+        </ng-container>
+        <ng-container *ngIf="editCache[data.key].edit">
+          <a (click)="saveEdit(data.key)">保存更改</a><nz-divider nzType="vertical"></nz-divider>
+          <nz-popconfirm [nzTitle]="'确定要放弃更改吗?'" (nzOnConfirm)="cancelEdit(data.key)">
+            <a nz-popconfirm>放弃更改</a>
+          </nz-popconfirm>
+        </ng-container>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
